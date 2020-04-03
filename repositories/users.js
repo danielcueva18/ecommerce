@@ -88,4 +88,4 @@ class UsersRepository {
     }
 };
 // makes instance to make available everywhere else 
-module.exports = new UsersRepository('users,json');
+module.exports = new UsersRepository('users.json');
