@@ -87,17 +87,5 @@ class UsersRepository {
         }
     }
 };
-const test = async () => {
-    const repo = new UsersRepository('users.json'); 
-
-    const user = await repo.getOneBy({
-        email: 'test@test.com',
-        password: 'password',
-        id: 'a7c04b42'
-    })
-
-    console.log(user);
-}
-
-
-test();
+// makes instance to make available everywhere else 
+module.exports = new UsersRepository('users,json');
