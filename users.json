@@ -6,5 +6,10 @@
     "email": "daniel@realestatedigital360.com",
     "password": "Password1",
     "id": "31e6271c"
+  },
+  {
+    "email": "test2@asd.com",
+    "password": "Password1",
+    "id": "bf93dbd9"
   }
 ]
