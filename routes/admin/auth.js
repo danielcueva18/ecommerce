@@ -47,15 +47,18 @@ router.get('/signout', (req, res) => {
     res.send('You are signed out')
 })
 
-router.get('/signin', (req, res)=> {
-    res.send(signinTemplate());
+router.get('/signin', (req, res) => {
+    res.send(signinTemplate({}));
 });
 
 router.post('/signin',
 [requireEmailExist, requireValidPasswordForUser], 
 async (req, res) => {
    const errors = validationResult(req);
-   console.log(errors)
+   
+   if (!errors.isEmpty()) {
+       return res.send(signinTemplate( { errors }));
+   }
    
     const { email } = req.body;
 
