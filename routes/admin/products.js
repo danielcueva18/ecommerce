@@ -29,7 +29,7 @@ async (req, res) => {
     const { title, price } = req.body;
     await productsRepo.create({ title, price, image });
 
-    res.send('submitted')
+    res.redirect('/admin/products')
 })
 
 module.exports = router;
