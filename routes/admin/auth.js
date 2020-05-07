@@ -25,14 +25,11 @@ router.post(
     handleErrors(signupTemplate),
 async (req, res) => {
     const { email, password } = req.body;
-
-    if (password !== passwordConfirmation) {
-        return res.send('Passwords must match')
-    }
     const user = await usersRepo.create({ email, password });
+    
     req.session.userId = user.id;
 
-    res.send('Account created!')
+    res.redirect('/admin/products')
 });
 
 router.get('/signout', (req, res) => {
@@ -57,7 +54,7 @@ async (req, res) => {
 
     req.session.userId = user.id;
 
-    res.send('You are signed in!!')
+    res.redirect('/admin/products')
 })
 
 module.exports = router;
